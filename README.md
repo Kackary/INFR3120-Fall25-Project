@@ -1,4 +1,4 @@
-# INFR3120 Fall25 Project - Task Tracker (unfinished)
+# INFR3120 Fall25 Project - Task Tracker
 
 **Team Members:**  
 - Zack  
@@ -23,7 +23,7 @@ This is our first release, so the site is functional but not fully styled yet.
 
 
 ## Live Site
-View our site here (link)
+View our site here https://infr3120-fall25-project-cnvg.onrender.com/
 
 ## Code Demo Video
-Watch our video explaining our code here (link)
+Watch our video explaining our code here https://youtu.be/DSYFSDS1X_8

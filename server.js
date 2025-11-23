@@ -39,6 +39,51 @@ db.on("error", (err) => {
 db.once("open", () => console.log("✅ Connected to MongoDB"));
 
 const Task = require("./models/Task");
+const User = require("./models/User");
+
+app.post("/register", async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const existing = await User.findOne({ email });
+    if (existing) {
+      return res.status(400).send("Email already registered");
+    }
+
+    const user = await User.create({ email, password });
+    req.session.userId = user._id;
+    res.redirect("/");
+  } catch (err) {
+    console.error("Error registering user:", err);
+    res.status(500).send("Error registering user");
+  }
+});
+
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  console.log("Login body:", req.body);
+
+  try {
+    const user = await User.findOne({ email });
+    if (!user || user.password !== password) {
+      return res.status(400).send("Invalid email or password");
+    }
+
+    req.session.userId = user._id;
+    res.redirect("/");
+  } catch (err) {
+    console.error("Error logging in:", err);
+    res.status(500).send("Error logging in");
+  }
+});
+
+
+function requireLogin(req, res, next) {
+  if (!req.session || !req.session.userId) {
+    return res.redirect("/login");
+  }
+  next();
+}
 
 app.get("/", async (req, res) => {
   console.log("GET / hit");
@@ -56,21 +101,13 @@ app.get("/login", (req, res) => {
   res.render("login", { title: "Login" });
 });
 
-app.post("/login", (req, res) => {
-  const { email, password } = req.body;
-  req.session.userId = email;
-  res.redirect("/");
-});
+
 
 app.get("/register", (req, res) => {
   res.render("register", { title: "register" });
 });
 
-app.post("/register", (req, res) => {
-  const { email, password } = req.body;
-  req.session.userId = email;
-  res.redirect("/");
-});
+
 
 app.get("/logout", (req, res) => {
   req.session.destroy(() => {
@@ -78,11 +115,11 @@ app.get("/logout", (req, res) => {
   });
 });
 
-app.get("/add", (req, res) => {
+app.get("/add", requireLogin, (req, res) => {
   res.render("add", { title: "Add Task" });
 });
 
-app.post("/add", async (req, res) => {
+app.post("/add", requireLogin, async (req, res) => {
   try {
     await Task.create({
       title: req.body.title,
@@ -96,7 +133,7 @@ app.post("/add", async (req, res) => {
   }
 });
 
-app.get("/edit/:id", async (req, res) => {
+app.get("/edit/:id", requireLogin, async (req, res) => {
   try {
     const task = await Task.findById(req.params.id);
     if (!task) {
@@ -109,7 +146,7 @@ app.get("/edit/:id", async (req, res) => {
   }
 });
 
-app.post("/update/:id", async (req, res) => {
+app.post("/update/:id", requireLogin, async (req, res) => {
   try {
     await Task.findByIdAndUpdate(req.params.id, req.body);
     res.redirect("/");
@@ -119,7 +156,7 @@ app.post("/update/:id", async (req, res) => {
   }
 });
 
-app.post("/delete/:id", async (req, res) => {
+app.post("/delete/:id", requireLogin, async (req, res) => {
   try {
     await Task.findByIdAndDelete(req.params.id);
     res.redirect("/");

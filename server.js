@@ -66,8 +66,12 @@ app.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ email });
     if (!user || user.password !== password) {
-      return res.status(400).send("Invalid email or password");
+      return res.render("login", {
+        title: "Login",
+        error: "Invalid email or password"
+      });
     }
+
 
     req.session.userId = user._id;
     res.redirect("/");

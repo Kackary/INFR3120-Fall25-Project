@@ -30,7 +30,7 @@
       <% tasks.forEach(task => { %>
         <tr>
           <td><%= task.title %></td>
-          <td><%= task.dueDate || "No due date" %></td>
+          <td><%= task.dueDate ? new Date(task.dueDate).toISOString().split("T")[0]: "No due date" %></td>
           <td><%= task.completed ? "✔ Completed" : "🕒 Pending" %></td>
           <td>
            <a href="/edit/<%= task._id %>" class="edit">Edit</a>

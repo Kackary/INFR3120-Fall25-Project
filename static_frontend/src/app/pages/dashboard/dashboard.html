@@ -1,0 +1,38 @@
+<h1>Task Tracker</h1>
+<p>By Zack, Param, and Humza</p>
+
+<h2 class="dashboard-title">Task Tracker Dashboard</h2>
+
+<div class="centered-button">
+  <a routerLink="/add" class="btn">➕ Add New Task</a>
+</div>
+
+<table class="task-table">
+  <thead>
+    <tr>
+      <th colspan="4">Task Tracker Dashboard</th>
+    </tr>
+    <tr>
+      <th>Task</th>
+      <th>Due Date</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngIf="tasks.length === 0">
+      <td colspan="4" class="empty">No tasks yet. Add one!</td>
+    </tr>
+
+    <tr *ngFor="let task of tasks">
+      <td>{{ task.title }}</td>
+      <td>{{ task.dueDate ? (task.dueDate | date:'yyyy-MM-dd') : 'No due date' }}</td>
+      <td>{{ task.completed ? '✔ Completed' : '🕒 Pending' }}</td>
+      <td>
+        <a class="edit" [routerLink]="['/edit', task._id]">Edit</a>
+        <button class="delete-btn" (click)="deleteTask(task._id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

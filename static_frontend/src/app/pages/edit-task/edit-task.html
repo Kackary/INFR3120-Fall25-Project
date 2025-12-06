@@ -1,0 +1,19 @@
+<h1>Edit Task</h1>
+
+<form (submit)="updateTask($event)">
+  <label>Task Title:</label>
+  <input type="text" name="title" [value]="task?.title" required>
+
+  <label>Due Date:</label>
+  <input type="date" name="dueDate" [value]="task?.dueDate | date:'yyyy-MM-dd'">
+
+  <label>Status:</label>
+  <select name="completed">
+    <option [value]="false" [selected]="!task?.completed">Pending</option>
+    <option [value]="true" [selected]="task?.completed">Completed</option>
+  </select>
+
+  <button>Save Changes</button>
+</form>
+
+<p><a routerLink="/">← Back</a></p>

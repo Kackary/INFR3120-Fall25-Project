@@ -1,0 +1,15 @@
+<h1>Login</h1>
+
+<form (submit)="login($event)" class="login-form">
+  <label>Email:</label>
+  <input type="email" name="email" required>
+
+  <label>Password:</label>
+  <input type="password" name="password" required>
+
+  <button type="submit">Login</button>
+</form>
+
+<a routerLink="/register" class="register-btn">New Account? Register</a>
+
+<p><a routerLink="/">← Back to Home</a></p>

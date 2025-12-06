@@ -1,0 +1,13 @@
+<h1>Add Task</h1>
+
+<form (submit)="addTask($event)">
+  <label>Task Title:</label>
+  <input type="text" name="title" required>
+
+  <label>Due Date:</label>
+  <input type="date" name="dueDate">
+
+  <button>Add Task</button>
+</form>
+
+<p><a routerLink="/">← Back</a></p>

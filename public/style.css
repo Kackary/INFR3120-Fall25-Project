@@ -217,3 +217,165 @@ footer {
     text-align: center;
   }
 }
+
+.auth-page {
+  background: black;         
+  padding: 60px 0;
+  min-height: 70vh;
+  max-width: 100%;
+}
+
+.auth-card {
+  background: darkgray;     
+  padding: 30px 35px;
+  border-radius: 12px;
+  border: 1px solid #333;   
+  color: white;             
+  width: 480px;
+  margin: auto;
+}
+
+.auth-page .login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin: 15px auto 0 auto;
+}
+
+.auth-page label {
+  font-size: 14px;
+  color: lightgray;              
+}
+
+.auth-page input {
+  padding: 9px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #666;
+  background: white;
+  color: black;
+}
+
+.auth-page input:focus {
+  outline: none;
+  border-color: darkred;
+}
+
+.auth-page button[type="submit"] {
+  margin-top: 8px;
+  padding: 9px;
+  background: darkred;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.auth-secondary-btn {
+  margin-top: 15px;
+  width: 100%;
+  text-align: center;
+  background: darkred;
+  border-radius: 6px;
+  color: white;
+  padding: 9px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.auth-error {
+  background: red;
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.auth-links {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.auth-links a {
+  color: #ffcccc;  
+  text-decoration: none;
+}
+
+.auth-forgot {
+  margin-top: 4px;
+  font-size: 13px;
+  text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .auth-card {
+    margin: 0 10px;
+    padding: 25px 20px;
+  }
+}
+
+
+
+/* RESET PASSWORD PAGE */
+.reset-page {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 20px;
+  background: darkgray;           /* black page */
+  color: white;
+  border-radius: 8px;
+}
+
+.reset-page h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.reset-page label {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.reset-page input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 3px;
+  border-radius: 5px;
+  border: 1px solid #333;
+}
+
+.reset-page input:focus {
+  outline: none;
+  border-color: darkred;
+}
+
+.reset-page button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 9px;
+  background: darkred;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.reset-page p {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.reset-page a {
+  color: peachpuff;
+  text-decoration: none;
+}

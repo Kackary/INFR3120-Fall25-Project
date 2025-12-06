@@ -119,6 +119,29 @@ app.get("/logout", (req, res) => {
   });
 });
 
+app.get("/reset-password", (req, res) => {
+  res.render("reset-password", { title: "Reset Password" });
+});
+
+app.post("/reset-password", async (req, res) => {const { email, newPassword } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.render("reset-password", {title: "Reset Password", error: "Email not found" });
+    }
+
+    user.password = newPassword;
+    await user.save();
+    return res.render("reset-password", {title: "Reset Password", success: "Password successfully updated"});
+
+  } catch (err) {
+    console.error("Error resetting password:", err);
+    res.render("reset-password", {title: "Reset Password", error: "Error resetting password"});
+  }
+});
+
 app.get("/add", requireLogin, (req, res) => {
   res.render("add", { title: "Add Task" });
 });

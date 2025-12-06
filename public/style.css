@@ -218,6 +218,8 @@ footer {
   }
 }
 
+
+/* CSS for login and registration pages */
 .auth-page {
   background: black;         
   padding: 60px 0;
@@ -312,7 +314,6 @@ footer {
   text-align: right;
 }
 
-/* Responsive */
 @media (max-width: 700px) {
   .auth-card {
     margin: 0 10px;
@@ -322,12 +323,12 @@ footer {
 
 
 
-/* RESET PASSWORD PAGE */
+/* CSS for reset password page */
 .reset-page {
   max-width: 400px;
   margin: 60px auto;
   padding: 20px;
-  background: darkgray;           /* black page */
+  background: darkgray;           
   color: white;
   border-radius: 8px;
 }

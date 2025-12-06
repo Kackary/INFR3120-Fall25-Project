@@ -36,4 +36,4 @@ Watch our video explaining our code for part ONE here https://youtu.be/DSYFSDS1X
 
 Watch our video explaining our code for part TWO here https://youtu.be/QvSv7yrCxqU
 
-Watch our video explaining our code for part THREE here (not made yet)
+Watch our video explaining our code for part THREE here https://youtu.be/z0UxFeRZmmM

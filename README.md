@@ -14,6 +14,7 @@ The site currently locks users to only view tasks and not edit, delete, or creat
 
 
 ## Features
+- Full styling
 - Landing/Home Page with Team Name and Logo  
 - Add new tasks (Create)  
 - View all tasks (Read)  
@@ -22,12 +23,17 @@ The site currently locks users to only view tasks and not edit, delete, or creat
 - Fully functional CRUD operations  
 - Login security
 - Register and Login pages
+- Reset password
 
 
 ## Live Site
 View our site here https://infr3120-fall25-project-cnvg.onrender.com/
 
+View our 'frontend' here https://fall25-project-frontend.vercel.app/
+
 ## Code Demo Video
 Watch our video explaining our code for part ONE here https://youtu.be/DSYFSDS1X_8
 
 Watch our video explaining our code for part TWO here https://youtu.be/QvSv7yrCxqU
+
+Watch our video explaining our code for part THREE here (not made yet)
